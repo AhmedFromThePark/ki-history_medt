@@ -6,14 +6,8 @@
           Navigation
         </p>
         <ul class="menu-list">
-          <li
-            v-for="(item, key) of items"
-            :key="key"
-          >
-            <nuxt-link
-              :to="item.to"
-              exact-active-class="is-active"
-            >
+          <li v-for="(item, key) of items" :key="key">
+            <nuxt-link :to="item.to" exact-active-class="is-active">
               <b-icon :icon="item.icon" /> {{ item.title }}
             </nuxt-link>
           </li>
@@ -28,22 +22,51 @@
 </template>
 
 <script>
+import Home from '../pages/index.vue';
+import History from '../pages/History.vue';
+import KI from '../pages/KI.vue';
+import About from '../pages/About.vue';
+import Contact from '../pages/Contact.vue';
+
 export default {
-  data () {
+  components:{
+    'index':Home,
+    'history':History,
+    'ki':KI,
+    'about':About,
+    'contact':Contact
+  },
+
+  data() {
     return {
       items: [
         {
-          title: 'Home',
-          icon: 'home',
-          to: { name: 'index' }
+          title: "Home",
+          icon: "home",
+          to: { name: "index" }
         },
         {
-          title: 'Inspire',
-          icon: 'lightbulb',
-          to: { name: 'inspire' }
+          title: "History",
+          icon: "lightbulb",
+          to: { name: "History" }
+        },
+        {
+          title: "KI",
+          icon: "lightbulb",
+          to: { name: "KI" }
+        },
+        {
+          title: "About",
+          icon: "lightbulb",
+          to: { name: "About" }
+        },
+        {
+          title: "Contact",
+          icon: "lightbulb",
+          to: { name: "Contact" }
         }
       ]
-    }
+    };
   }
-}
+};
 </script>
